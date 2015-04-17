@@ -1,0 +1,18 @@
+
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+  <div class="book">
+    <%= link_to "#{book.name} (#{book.author})", book, class: "book_link" %>
+    <%= link_to 'Edit', edit_book_path(book) %>
+    <%= link_to 'Remove', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<p />
+
+<%= will_paginate @books %>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>
